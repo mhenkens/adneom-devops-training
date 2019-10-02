@@ -17,7 +17,7 @@ options {
         stash(allowEmpty: true, name: 'post-build')
       }
     }
-    stage('docker') {
+    stage('Docker') {
       agent{
         label 'docker'
       }
