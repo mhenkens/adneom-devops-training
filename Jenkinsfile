@@ -22,7 +22,7 @@ pipeline {
         label 'docker'
       }
       steps {
-        unstash: 'post-buid'
+        unstash 'post-buid'
         dir(path: 'asgard-rest') {
           script{
             docker.build(registry + "/asgard-rest:latest")
