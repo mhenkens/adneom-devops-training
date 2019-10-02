@@ -19,7 +19,7 @@ options {
     }
     stage('docker') {
       agent{
-        label:'docker'
+        label 'docker'
       }
       step {
         unstash: 'post-buid'
