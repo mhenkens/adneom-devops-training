@@ -4,9 +4,9 @@ pipeline {
       registry = "ffurlanetto"
       registryCredential = 'dockerhub'
     }
-options {
-  timeout(10)
-}
+  options {
+    timeout(10)
+  }
   stages {
     stage('Build') {
      agent{
@@ -21,7 +21,7 @@ options {
       agent{
         label 'docker'
       }
-      step {
+      steps {
         unstash: 'post-buid'
         dir(path: 'asgard-rest') {
           script{
