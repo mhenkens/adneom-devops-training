@@ -17,6 +17,24 @@ options {
         stash(allowEmpty: true, name: 'post-build')
       }
     }
-    
+    stage('docker') {
+      agent{
+        label:'docker'
+      }
+      step {
+        unstash: 'post-buid'
+        dir(path: 'asgard-rest') {
+          script{
+            docker.build(registry + "/asgard-rest:latest")
+          }
+        }
+
+        dir(path: 'asgard-web') {
+          script {
+            docker.build(registry + "/asgard-web:latest")
+          }
+        }
+      }
+    }
   }
 }
