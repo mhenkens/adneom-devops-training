@@ -6,9 +6,9 @@ pipeline {
     }
   stages {
     stage('Build') {
-      tools {
-        jdk 'JDK11'
-        }
+     agent{
+       label 'openjdk-11'
+     }
       steps {
         sh './gradlew build'
         stash(allowEmpty: true, name: 'post-build')
