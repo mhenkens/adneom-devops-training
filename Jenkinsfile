@@ -4,6 +4,9 @@ pipeline {
       registry = "ffurlanetto"
       registryCredential = 'dockerhub'
     }
+options {
+  timeout(10)
+}
   stages {
     stage('Build') {
      agent{
@@ -14,7 +17,6 @@ pipeline {
         stash(allowEmpty: true, name: 'post-build')
       }
     }
-    
     
   }
 }
