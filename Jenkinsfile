@@ -5,7 +5,7 @@ pipeline {
       registryCredential = 'dockerhub'
     }
   options {
-    timeout(10)
+    timeout(20)
   }
   stages {
     stage('Build') {
